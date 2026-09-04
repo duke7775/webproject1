@@ -9,8 +9,8 @@ A game task management，the application allows users to manage and organize the
 <img width="1917" height="927" alt="屏幕截图 2026-09-04 192603" src="https://github.com/user-attachments/assets/725f26ac-eaa7-4dec-ba58-3a3100326891" />
 
 ## Team Members
-YOUAI LU
-Worakarn phaolaor
+-Number1YOUAI LU
+-Number2Worakarn phaolaor
 
 ## Basic Usage Instructions
 Open the application using the deployment URL.
