@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.kanban-board {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.kanban-column {
+  flex: 1;
+  min-height: 500px;
+  padding: 20px;
+  background-color: #f3f4f6;
+  border-radius: 10px;
+}
+
+.kanban-column h2 {
+  text-align: center;
+}
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.task-card {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-card h3 {
+  margin-top: 0;
+}
+
+.task-card p {
+  margin: 8px 0;
+}
+.app {
+  padding: 30px;
+}
+
+.task-form {
+  width: 400px;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f3f4f6;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-form input,
+.task-form textarea,
+.task-form select {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.task-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.task-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.task-form button {
+  margin-right: 10px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+.dashboard {
+  padding: 20px;
+}
+
+.summary-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.summary-card {
+  background-color: white;
+  width: 180px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary-card h3 {
+  margin-top: 0;
+}
+
+.summary-card p {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
