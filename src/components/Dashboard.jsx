@@ -2,13 +2,16 @@ function Dashboard({ tasks, categories }) {
 
   const totalTasks = tasks.length
 
+
   const todoTasks = tasks.filter(
     (task) => task.status === "TODO"
   ).length
 
+
   const doingTasks = tasks.filter(
     (task) => task.status === "DOING"
   ).length
+
 
   const doneTasks = tasks.filter(
     (task) => task.status === "DONE"
@@ -55,6 +58,20 @@ function Dashboard({ tasks, categories }) {
     )
 
   }).length
+
+
+  const todoPercent =
+    totalTasks === 0 ? 0 : (todoTasks / totalTasks) * 100
+
+
+  const doingPercent =
+    totalTasks === 0 ? 0 : (doingTasks / totalTasks) * 100
+
+
+  const donePercent =
+    totalTasks === 0 ? 0 : (doneTasks / totalTasks) * 100
+
+
   return (
 
     <div className="dashboard">
@@ -71,20 +88,24 @@ function Dashboard({ tasks, categories }) {
           <p>{totalTasks}</p>
         </div>
 
+
         <div className="summary-card">
           <h3>TO DO</h3>
           <p>{todoTasks}</p>
         </div>
+
 
         <div className="summary-card">
           <h3>DOING</h3>
           <p>{doingTasks}</p>
         </div>
 
+
         <div className="summary-card">
           <h3>DONE</h3>
           <p>{doneTasks}</p>
         </div>
+
 
         <div className="summary-card">
           <h3>Overdue</h3>
@@ -93,78 +114,63 @@ function Dashboard({ tasks, categories }) {
 
       </div>
 
+
       <h2>Task Status</h2>
 
-      <div className="chart">
 
-        <div className="chart-item">
+      <div className="doughnut-chart-container">
 
-          <p>TO DO: {todoTasks}</p>
+        <div
+          className="doughnut-chart"
+          style={{
+            background:
+              totalTasks === 0
+                ? "#e5e7eb"
+                : `conic-gradient(
+                    #4f46e5 0% ${todoPercent}%,
+                    #f59e0b ${todoPercent}% ${todoPercent + doingPercent}%,
+                    #22c55e ${todoPercent + doingPercent}% 100%
+                  )`
+          }}
+        >
 
-          <div className="bar-background">
+          <div className="doughnut-center">
 
-            <div
-              className="bar"
-              style={{
-                width: `${
-                  totalTasks === 0
-                    ? 0
-                    : (todoTasks / totalTasks) * 100
-                }%`
-              }}
-            ></div>
+            <strong>{totalTasks}</strong>
 
-          </div>
-
-        </div>
-
-
-        <div className="chart-item">
-
-          <p>DOING: {doingTasks}</p>
-
-          <div className="bar-background">
-
-            <div
-              className="bar"
-              style={{
-                width: `${
-                  totalTasks === 0
-                    ? 0
-                    : (doingTasks / totalTasks) * 100
-                }%`
-              }}
-            ></div>
+            <span>Total</span>
 
           </div>
 
         </div>
 
 
-        <div className="chart-item">
+        <div className="chart-legend">
 
-          <p>DONE: {doneTasks}</p>
+          <p>
+            <span className="legend-color todo"></span>
+            TO DO: {todoTasks}
+          </p>
 
-          <div className="bar-background">
 
-            <div
-              className="bar"
-              style={{
-                width: `${
-                  totalTasks === 0
-                    ? 0
-                    : (doneTasks / totalTasks) * 100
-                }%`
-              }}
-            ></div>
+          <p>
+            <span className="legend-color doing"></span>
+            DOING: {doingTasks}
+          </p>
 
-          </div>
+
+          <p>
+            <span className="legend-color done"></span>
+            DONE: {doneTasks}
+          </p>
 
         </div>
 
       </div>
 
+
       <h2>Task Category</h2>
+
 
       <div className="chart">
 
@@ -173,6 +179,7 @@ function Dashboard({ tasks, categories }) {
           const categoryTasks = tasks.filter(
             (task) => task.category === category
           ).length
+
 
           return (
 
@@ -184,6 +191,7 @@ function Dashboard({ tasks, categories }) {
               <p>
                 {category}: {categoryTasks}
               </p>
+
 
               <div className="bar-background">
 
@@ -208,9 +216,12 @@ function Dashboard({ tasks, categories }) {
 
       </div>
 
+
       <h2>Completion Performance</h2>
 
+
       <div className="chart">
+
 
         <div className="chart-item">
 
@@ -284,5 +295,6 @@ function Dashboard({ tasks, categories }) {
   )
 
 }
+
 
 export default Dashboard
